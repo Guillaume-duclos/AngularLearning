@@ -1,0 +1,19 @@
+<ul>
+  <app-device
+    *ngFor="let device of devices; let i = index"
+    [deviceIndex]="i"
+    [deviceName]="device.name"
+    [deviceState]="device.status"
+    [id]="device.id"
+  >
+  </app-device>
+  <br>
+  <button class="btn btn-success" [disabled]="!isAuth" (click)="onOn()">
+    Tout allumer
+  </button>
+  <button class="btn btn-danger" [disabled]="!isAuth" (click)="onOff()">
+    Tout éteindre
+  </button>
+  <br>
+  <p>{{ lastUpdate | async | date: 'short' }}</p>
+</ul>
